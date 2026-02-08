@@ -26,22 +26,22 @@ public class CarritoControlador {
         return carrito;
     }
 
-    /*
-    @GetMapping("/api/contadores/{nombre}")
-    public ModeloContador contador(@PathVariable String nombre) {
-        return contadores.get(nombre);
+
+    @GetMapping("/api/carritos/{idCarrito}")
+    public Carrito getCarrito(@PathVariable int idCarrito) {
+        return carritos.get(idCarrito);
     }
 
-    @PutMapping("/api/contadores/{nombre}/incremento/{incremento}")
-    public ModeloContador incrementa(@PathVariable String nombre,
-                                     @PathVariable Integer incremento) {
-        ModeloContador contadorActual = contadores.get(nombre);
-        ModeloContador contadorIncrementado =
-                new ModeloContador(nombre, contadorActual.valor() + incremento);
-        contadores.put(nombre, contadorIncrementado);
-        return contadorIncrementado;
+    @DeleteMapping("/api/carritos/{idCarrito}")
+    public void deleteCarrito(@PathVariable int idCarrito) {
+        carritos.remove(idCarrito);
     }
 
-     */
+    @PutMapping("/api/carritos/{idCarrito}")
+    public Carrito modificaCarrito(@PathVariable int idCarrito,
+                                     @RequestBody Carrito carrito) {
+        carritos.put(idCarrito, carrito);
+        return carrito;
+    }
 }
 
